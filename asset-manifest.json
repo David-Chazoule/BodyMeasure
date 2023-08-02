@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/BodyMeasure/static/css/main.9645331a.css",
+    "main.js": "/BodyMeasure/static/js/main.537e7226.js",
+    "static/js/787.7d05b48d.chunk.js": "/BodyMeasure/static/js/787.7d05b48d.chunk.js",
+    "static/media/Pacifico-Regular.ttf": "/BodyMeasure/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
+    "static/media/food.png": "/BodyMeasure/static/media/food.941c30bd99ac2ce4bcc4.png",
+    "static/media/BebasNeue-Regular.ttf": "/BodyMeasure/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
+    "static/media/body.png": "/BodyMeasure/static/media/body.46d99cca1d1e04da28fa.png",
+    "static/media/logobody.png": "/BodyMeasure/static/media/logobody.518a77e3d7cd680d85c0.png",
+    "index.html": "/BodyMeasure/index.html",
+    "main.9645331a.css.map": "/BodyMeasure/static/css/main.9645331a.css.map",
+    "main.537e7226.js.map": "/BodyMeasure/static/js/main.537e7226.js.map",
+    "787.7d05b48d.chunk.js.map": "/BodyMeasure/static/js/787.7d05b48d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9645331a.css",
+    "static/js/main.537e7226.js"
+  ]
+}
