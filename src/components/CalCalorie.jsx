@@ -18,8 +18,6 @@ export default function CalCalorie() {
   const [errorWeight, setErrorWeight] = useState("");
   const [errorFat, setErrorFat] = useState("");
 
-
-
   /*  function that allows you to calculate your caloric need with the Harris method */
 
   const methodHarris = () => {
@@ -40,7 +38,6 @@ export default function CalCalorie() {
       activityDay(result);
     }
   };
-
 
   /*  function that allows you to calculate your caloric need with the Katch method */
 
@@ -161,7 +158,7 @@ export default function CalCalorie() {
             <div>
               <label>
                 <input
-                  type="radio" 
+                  type="radio"
                   value="Mifflin"
                   id="mifflin"
                   checked={method === "Mifflin"}
