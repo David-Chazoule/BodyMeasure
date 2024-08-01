@@ -46,7 +46,7 @@ Here's an overview of the project structure:
 - Harris-Benedict
 - Katch-McArdle
   
-*Enter your information:*
+  *Enter your information:*
 - sex
 - age
 - weight (in kilograms)
