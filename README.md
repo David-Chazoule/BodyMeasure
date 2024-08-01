@@ -26,11 +26,11 @@ npm start
 ## Project Structure
 Here's an overview of the project structure:
 
-src/: Contains the source code for the application.
+_src/:_ Contains the source code for the application.
 
-components/: Reusable React components.
+_components/:_ Reusable React components.
 
-styles/: Sass files for styling.
+_styles/:_ Sass files for styling.
 
 ##How It Works
 
