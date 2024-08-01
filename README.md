@@ -30,13 +30,13 @@ npm start
 ## Project Structure
 Here's an overview of the project structure:
 
-**src/:**Contains the source code for the application.
+**src/:** *Contains the source code for the application.*
 
-**components/:** Reusable React components.
+**components/:** *Reusable React components.*
 
-**styles/:** Sass files for styling.
+**styles/:** *Sass files for styling.*
 
-##How It Works
+## How It Works
 
 1.	**BMI Calculation:**
 Input your weight and height to calculate your Body Mass Index (BMI).
