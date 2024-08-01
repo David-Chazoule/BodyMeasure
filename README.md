@@ -39,13 +39,14 @@ Here's an overview of the project structure:
 ## How It Works
 
 1.	**BMI Calculation:**
-Input your weight and height to calculate your Body Mass Index (BMI).
+*Input your weight and height to calculate your Body Mass Index (BMI).*
 3.	**Daily Calorie Needs:**
-Choose one of the following methods to estimate your daily calorie needs:
+*Choose one of the following methods to estimate your daily calorie needs:*
 - Mifflin-St Jeor
 - Harris-Benedict
 - Katch-McArdle
-Enter your information:
+  
+*Enter your information:*
 - sex
 - age
 - weight (in kilograms)
