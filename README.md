@@ -19,9 +19,9 @@ The application has been developed using:
 To set up and run the application locally, follow these steps:
 
 1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 2. **Start the application:**
 ```bash
