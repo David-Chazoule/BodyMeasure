@@ -2,7 +2,7 @@
 
 <img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure1.PNG" style="width:800px; height:auto;" >
 
-<img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure2.PNG" alt="Body Measure Screenshot 2" style="width:600px; height:auto;"><img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure3.PNG" alt="Body Measure Screenshot 3" style="width:600px; height:auto;"><img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure4.PNG" alt="Body Measure Screenshot 4" style="width:600px; height:auto;">
+<img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure2.PNG" alt="Body Measure Screenshot 2" style="width:400px; height:auto;"><img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure3.PNG" alt="Body Measure Screenshot 3" style="width:400px; height:auto;"><img src="https://github.com/David-Chazoule/BodyMeasure/raw/master/src/preview/bodymesure4.PNG" alt="Body Measure Screenshot 4" style="width:400px; height:auto;">
 
 
 
