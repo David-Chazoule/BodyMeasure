@@ -7,7 +7,7 @@ test('renders Header component', () => {
   expect(headerElement).toBeInTheDocument();
 });
 
-test('renders logo image with correct alt text', () => {
+test('renders logo image with correct alt text', () => { 
   render(<Header />);
   const logoImage = screen.getByAltText(/logo/i);  // Cherche une image avec alt "logo"
   expect(logoImage).toBeInTheDocument();
