@@ -25,6 +25,10 @@ export default function CalculImc() {
   /* function that checks the given imc and assigns it a color according to its level */
 
   const imcStyle = (imc) => {
+    if (imc < 0 || isNaN(imc)) {
+      return "error";
+    }
+
     if (imc === 0 || imc <= 18.4) {
       setColorImc("A");
       return setImc(imc.toFixed(2));
