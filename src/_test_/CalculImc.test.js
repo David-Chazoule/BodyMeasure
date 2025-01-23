@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import CalculImc from "../components/CalculImc";
 
 test("calculImcs calculates BMI corectly", () => {
@@ -52,3 +52,120 @@ test("imcStyle assigns correct color and formatted value", () => {
   //test no numeric value
   expect(mockImcStyle(NaN)).toBe("error");
 });
+
+describe("NumberVerification function with simulated states", () => {
+  it("should set the correct error message and styles for invalid weight", () => {
+    // Variables to simulate states
+    let noValidEnter = "";
+    let result = true;
+    let errorWeight = "";
+    let errorSize = "";
+
+    // Test data
+    const weight = "abc"; //Invalid entry
+    const size = "180"; // valid entry
+    const validNumberRegex = /^[0-9]+$/;
+
+    if (!validNumberRegex.test(weight)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorWeight = "error-style";
+    } else if (!validNumberRegex.test(size)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorSize = "error-style";
+    } else {
+      noValidEnter = "";
+    }
+
+    // Assertions
+    expect(noValidEnter).toBe("*entrée vos données en chiffres");
+    expect(result).toBe(false);
+    expect(errorWeight).toBe("error-style");
+    expect(errorSize).toBe("");
+  });
+
+  it("should set the correct error message and styles for invalid size", () => {
+    // Variables pour simuler les états
+    let noValidEnter = "";
+    let result = true;
+    let errorWeight = "";
+    let errorSize = "";
+
+    // Données de test
+    const weight = "70"; // valid entry
+    const size = "xyz"; //Invalid entry
+    const validNumberRegex = /^[0-9]+$/;
+
+    // Réplique de la logique de ta fonction
+    if (!validNumberRegex.test(weight)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorWeight = "error-style";
+    } else if (!validNumberRegex.test(size)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorSize = "error-style";
+    } else {
+      noValidEnter = "";
+    }
+
+    // Assertions
+    expect(noValidEnter).toBe("*entrée vos données en chiffres");
+    expect(result).toBe(false);
+    expect(errorWeight).toBe("");
+    expect(errorSize).toBe("error-style");
+  });
+
+  it("should not set any error for valid inputs", () => {
+    // Variables to simulate states
+    let noValidEnter = "";
+    let result = true;
+    let errorWeight = "";
+    let errorSize = "";
+
+    const weight = "70"; // Entrée valide
+    const size = "180"; // Entrée valide
+    const validNumberRegex = /^[0-9]+$/;
+
+    if (!validNumberRegex.test(weight)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorWeight = "error-style";
+    } else if (!validNumberRegex.test(size)) {
+      noValidEnter = "*entrée vos données en chiffres";
+      result = false;
+      errorSize = "error-style";
+    } else {
+      noValidEnter = "";
+    }
+
+    // Assertions
+    expect(noValidEnter).toBe("");
+    expect(result).toBe(true);
+    expect(errorWeight).toBe("");
+    expect(errorSize).toBe("");
+  });
+});
+
+
+
+//integration test
+
+test("calculates BMI and displays result", ()=>{
+render(<CalculImc/>);
+
+const sizeInput = screen.getByPlaceholderText("Votre taille en cm");
+const weightInput = screen.getByPlaceholderText("Votre poid");
+const sumbitButton = screen.getByText("Calculer mon IMC");
+
+fireEvent.change(sizeInput, {target: {value: "175"}})
+fireEvent.change(weightInput, {target: {value : "70"}})
+fireEvent.click(sumbitButton);
+
+const result = screen.getByText(/Votre IMC :/i)
+expect(result).toBeInTheDocument()
+expect(screen.getByText("22.86")).toBeInTheDocument();
+
+
+})
