@@ -54,4 +54,4 @@ Here's an overview of the project structure:
 - weight (in kilograms)
 - height (in centimeters)
 - your body mass (for the method Katch-McArdle)
->>>>>>> 51856f20a5a22c6a9a15260c7f160fc024ce6cd5
+
