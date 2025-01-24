@@ -13,7 +13,7 @@ export default function CalCalorie() {
     method: "Mifflin",
     activity: "Sedentaire",
   });
-  
+
   const [showResult, setShowResult] = useState(false);
   const [noValidEnter, setNoValidEnter] = useState("");
   const [errorAge, setErrorAge] = useState("");
@@ -55,12 +55,18 @@ export default function CalCalorie() {
   const MethodMifflin = () => {
     if (userData.sex === "man") {
       const result =
-        10 * Number(userData.weight) + 6.25 * Number(userData.size) - 5 * Number(userData.age) + 5;
+        10 * Number(userData.weight) +
+        6.25 * Number(userData.size) -
+        5 * Number(userData.age) +
+        5;
       activityDay(result);
     }
     if (userData.sexe === "woman") {
       const result =
-        10 * Number(userData.weight) + 6.25 * Number(userData.size) - 5 * Number(userData.age) - 161;
+        10 * Number(userData.weight) +
+        6.25 * Number(userData.size) -
+        5 * Number(userData.age) -
+        161;
       activityDay(result);
     }
   };
@@ -84,29 +90,27 @@ export default function CalCalorie() {
 
   const activityDay = (x) => {
     let coef;
-    switch (userData.activity){
-    case "Sedentaire":
-      coef = x * 1.2;
-     break;
-     case"Lg-acti":
-     coef = x * 1.375;
-     break;
-     case "Actif":
-      coef = x * 1.55;
-     break;
-     case "T-actif":
-      coef = x * 1.725
-     break;
-     case "Ex-actif":
-      coef = x * 1.9;
-     break;
-   default:
-    coef = x * 1.2;
-
+    switch (userData.activity) {
+      case "Sedentaire":
+        coef = x * 1.2;
+        break;
+      case "Lg-acti":
+        coef = x * 1.375;
+        break;
+      case "Actif":
+        coef = x * 1.55;
+        break;
+      case "T-actif":
+        coef = x * 1.725;
+        break;
+      case "Ex-actif":
+        coef = x * 1.9;
+        break;
+      default:
+        coef = x * 1.2;
     }
-    setUserData(prevState=>({...prevState, kal: coef.toFixed(0)}))
-  }
-    
+    setUserData((prevState) => ({ ...prevState, kal: coef.toFixed(0) }));
+  };
 
   /* function that checks if the data entered by the user are indeed numbers */
 
@@ -135,34 +139,28 @@ export default function CalCalorie() {
   const handleClick = () => {
     setUserData({
       age: "",
-    size: "",
-    weight: "",
-    sex: "",
-    fat: "",
-    kal: "",
-    method: "Mifflin",
-    activity: "Sedentaire",
-    }
+      size: "",
+      weight: "",
+      sex: "",
+      fat: "",
+      kal: "",
+      method: "Mifflin",
+      activity: "Sedentaire",
+    });
 
-    )
-   
     setShowResult(false);
   };
 
-const handleChange =(e)=>{
-  const {name, value}= e.target;
-  setUserData(prevState=>({...prevState,[name]:value}))
-}
-
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const handlePost = (e) => {
     e.preventDefault();
     calculBMR();
     setShowResult(!showResult);
   };
-
-
 
   return (
     <div className="calcul_kalorie_container">
@@ -211,7 +209,7 @@ const handleChange =(e)=>{
               <div className="sex-box">
                 <label>
                   <select
-                  name="sex"
+                    name="sex"
                     value={userData.sex}
                     required
                     onChange={handleChange}
