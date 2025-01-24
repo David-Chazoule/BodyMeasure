@@ -14,14 +14,18 @@ export default function CalCalorie() {
     activity: "Sedentaire",
   });
 
-  const [showResult, setShowResult] = useState(false);
-  const [noValidEnter, setNoValidEnter] = useState("");
-  const [errorAge, setErrorAge] = useState("");
-  const [errorSize, setErrorSize] = useState("");
-  const [errorWeight, setErrorWeight] = useState("");
-  const [errorFat, setErrorFat] = useState("");
+  const [error, setError] = useState({
+    hasError: false,
+    fields: {
+      age: false,
+      size: false,
+      weight: false,
+      fat: false,
+    },
+    message: "",
+  });
 
-  /*  function that allows you to calculate your caloric need with the Harris method */
+  const [showResult, setShowResult] = useState(false);
 
   const methodHarris = () => {
     if (userData.sex === "man") {
@@ -115,25 +119,21 @@ export default function CalCalorie() {
   /* function that checks if the data entered by the user are indeed numbers */
 
   const NumberVerification = () => {
-    if (!ValidNumber.test(userData.weight)) {
-      setNoValidEnter("*entrée vos données en chiffres");
-      setShowResult(false);
-      setErrorWeight("error-style");
-    } else if (!ValidNumber.test(userData.size)) {
-      setNoValidEnter("*entrée vos données en chiffres");
-      setShowResult(false);
-      setErrorSize("error-style");
-    } else if (!ValidNumber.test(userData.age)) {
-      setNoValidEnter("*entrée vos données en chiffres");
-      setShowResult(false);
-      setErrorAge("error-style");
-    } else if (userData.method === "Katch" && !ValidNumber.test(userData.fat)) {
-      setNoValidEnter("*entrée vos données en chiffres");
-      setShowResult(false);
-      setErrorFat("error-style");
-    } else {
-      setNoValidEnter("");
-    }
+    const newErrors = { ...error.fields };
+
+    newErrors.age = !ValidNumber.test(userData.age);
+    newErrors.size = !ValidNumber.test(userData.size);
+    newErrors.weight = !ValidNumber.test(userData.weight);
+    newErrors.fat =
+      userData.method === "Katch" && !ValidNumber.test(userData.fat);
+
+    setError({
+      hasError: Object.values(newErrors).some((field) => field === true),
+      fields: newErrors,
+      message: "*Veuillez entrer vos données en chiffres.",
+    });
+
+    setShowResult(!Object.values(newErrors).some((field) => field === true));
   };
 
   const handleClick = () => {
@@ -230,7 +230,7 @@ export default function CalCalorie() {
                     name="age"
                     type="text"
                     placeholder="Votre age"
-                    className={noValidEnter ? errorAge : ""}
+                    className={error.fields.age ? "error-style" : ""}
                     value={userData.age}
                     required
                     onChange={handleChange}
@@ -243,7 +243,7 @@ export default function CalCalorie() {
                       name="fat"
                       type="text"
                       placeholder="% graisse corporelle"
-                      className={noValidEnter ? errorFat : ""}
+                      className={error.fields.fat ? "error-style" : ""}
                       value={userData.fat}
                       required
                       onChange={handleChange}
@@ -260,7 +260,7 @@ export default function CalCalorie() {
                     name="size"
                     type="text"
                     placeholder="Votre taille en cm"
-                    className={noValidEnter ? errorSize : ""}
+                    className={error.fields.size ? "error-style" : ""}
                     value={userData.size}
                     required
                     onChange={handleChange}
@@ -272,7 +272,7 @@ export default function CalCalorie() {
                     name="weight"
                     type="text"
                     placeholder="Votre poid en kilos"
-                    className={noValidEnter ? errorWeight : ""}
+                    className={error.fields.weight ? "error-style" : ""}
                     value={userData.weight}
                     required
                     onChange={handleChange}
@@ -341,7 +341,7 @@ export default function CalCalorie() {
             </div>
           </div>
           <div className="error-enter-box">
-            <span>{noValidEnter}</span>
+            <span>{error.hasError ? error.message : ""}</span>
           </div>
           <button type="submit">
             {showResult ? (
