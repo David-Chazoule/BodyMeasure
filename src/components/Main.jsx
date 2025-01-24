@@ -1,6 +1,7 @@
 import React from "react";
 import CalculImc from "./CalculImc";
-import CalCalorie from "./CalCalorie";
+// import CalCalorie from "./CalCalorie";
+import CalCalorieVTwo from"./CalCalorieVtwo";
 
 export default function Main() {
   return (
@@ -11,7 +12,8 @@ export default function Main() {
       </div>
       <div className="kal-box">
         <h1>Calculer votre besoin journalier en calories</h1>
-        <CalCalorie />
+        {/* <CalCalorie /> */}
+        <CalCalorieVTwo/>
       </div>
     </div>
   );
