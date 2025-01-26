@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import food from "../styles/img/food.png";
 import { ValidNumber } from "./Regex";
+import { calculBMR } from "./utils";
 
 export default function CalCalorie() {
   const [userData, setUserData] = useState({
@@ -26,69 +27,6 @@ export default function CalCalorie() {
   });
 
   const [showResult, setShowResult] = useState(false);
-
-  const methodHarris = () => {
-    if (userData.sex === "man") {
-      const result =
-        13.397 * Number(userData.weight) +
-        4.799 * Number(userData.size) -
-        5.677 * Number(userData.age) +
-        88.362;
-      activityDay(result);
-    }
-    if (userData.sex === "woman") {
-      const result =
-        9.247 * Number(userData.weight) +
-        3.098 * Number(userData.size) -
-        4.33 * Number(userData.age) +
-        447.593;
-      activityDay(result);
-    }
-  };
-
-  /*  function that allows you to calculate your caloric need with the Katch method */
-
-  const methodKatch = () => {
-    const fatcal = Number(userData.fat) / 100;
-    const result = 370 + 21.6 * (1 - fatcal) * 63;
-    activityDay(result);
-  };
-
-  /*  function that allows you to calculate your caloric need with the Mifflin method */
-
-  const MethodMifflin = () => {
-    if (userData.sex === "man") {
-      const result =
-        10 * Number(userData.weight) +
-        6.25 * Number(userData.size) -
-        5 * Number(userData.age) +
-        5;
-      activityDay(result);
-    }
-    if (userData.sexe === "woman") {
-      const result =
-        10 * Number(userData.weight) +
-        6.25 * Number(userData.size) -
-        5 * Number(userData.age) -
-        161;
-      activityDay(result);
-    }
-  };
-
-  /*  function which checks which method was chosen by the user */
-
-  const calculBMR = () => {
-    if (userData.method === "Mifflin") {
-      MethodMifflin();
-    }
-
-    if (userData.method === "Harris") {
-      methodHarris();
-    }
-    if (userData.method === "Katch") {
-      methodKatch();
-    }
-  };
 
   /*  function that adds a multiplier coefficient according to the physical activity of the user on the result of caloric need */
 
@@ -158,7 +96,8 @@ export default function CalCalorie() {
 
   const handlePost = (e) => {
     e.preventDefault();
-    calculBMR();
+
+    calculBMR(userData, activityDay);
     setShowResult(!showResult);
   };
 
