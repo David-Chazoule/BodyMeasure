@@ -148,24 +148,20 @@ describe("NumberVerification function with simulated states", () => {
   });
 });
 
-
-
 //integration test
 
-test("calculates BMI and displays result", ()=>{
-render(<CalculImc/>);
+test("calculates BMI and displays result", () => {
+  render(<CalculImc />);
 
-const sizeInput = screen.getByPlaceholderText("Votre taille en cm");
-const weightInput = screen.getByPlaceholderText("Votre poid");
-const sumbitButton = screen.getByText("Calculer mon IMC");
+  const sizeInput = screen.getByPlaceholderText("Votre taille en cm");
+  const weightInput = screen.getByPlaceholderText("Votre poid");
+  const sumbitButton = screen.getByText("Calculer mon IMC");
 
-fireEvent.change(sizeInput, {target: {value: "175"}})
-fireEvent.change(weightInput, {target: {value : "70"}})
-fireEvent.click(sumbitButton);
+  fireEvent.change(sizeInput, { target: { value: "175" } });
+  fireEvent.change(weightInput, { target: { value: "70" } });
+  fireEvent.click(sumbitButton);
 
-const result = screen.getByText(/Votre IMC :/i)
-expect(result).toBeInTheDocument()
-expect(screen.getByText("22.86")).toBeInTheDocument();
-
-
-})
+  const result = screen.getByText(/Votre IMC :/i);
+  expect(result).toBeInTheDocument();
+  expect(screen.getByText("22.86")).toBeInTheDocument();
+});

@@ -36,7 +36,7 @@ export default function CalCalorie() {
       case "Sedentaire":
         coef = x * 1.2;
         break;
-      case "Lg-acti":
+      case "Lg-actif":
         coef = x * 1.375;
         break;
       case "Actif":
