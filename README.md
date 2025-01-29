@@ -10,6 +10,9 @@
 
 This project is a web application designed to first calculate your Body Mass Index (BMI) and then compute your daily calorie needs using three different methods: Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle.
 
+[Online here](https://david-chazoule.github.io/BodyMeasure/)
+
+
 ## Technologies Used
 
 The application has been developed using:
