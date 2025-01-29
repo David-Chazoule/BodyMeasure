@@ -135,7 +135,7 @@ export default function CalculImc() {
                 <table>
                   <thead>
                     <tr>
-                      <th colspan="2">Indice IMC</th>
+                      <th colSpan="2">Indice IMC</th>
                     </tr>
                   </thead>
 

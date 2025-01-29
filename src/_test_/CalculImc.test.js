@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import CalculImc from "../components/CalculImc";
+import { ValidNumber } from "../components/Regex";
 
 test("calculImcs calculates BMI corectly", () => {
   const weight = 70;
@@ -64,13 +65,12 @@ describe("NumberVerification function with simulated states", () => {
     // Test data
     const weight = "abc"; //Invalid entry
     const size = "180"; // valid entry
-    const validNumberRegex = /^[0-9]+$/;
 
-    if (!validNumberRegex.test(weight)) {
+    if (!ValidNumber.test(weight)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorWeight = "error-style";
-    } else if (!validNumberRegex.test(size)) {
+    } else if (!ValidNumber.test(size)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorSize = "error-style";
@@ -95,14 +95,13 @@ describe("NumberVerification function with simulated states", () => {
     // Données de test
     const weight = "70"; // valid entry
     const size = "xyz"; //Invalid entry
-    const validNumberRegex = /^[0-9]+$/;
 
     // Réplique de la logique de ta fonction
-    if (!validNumberRegex.test(weight)) {
+    if (!ValidNumber.test(weight)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorWeight = "error-style";
-    } else if (!validNumberRegex.test(size)) {
+    } else if (!ValidNumber.test(size)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorSize = "error-style";
@@ -126,13 +125,12 @@ describe("NumberVerification function with simulated states", () => {
 
     const weight = "70"; // Entrée valide
     const size = "180"; // Entrée valide
-    const validNumberRegex = /^[0-9]+$/;
 
-    if (!validNumberRegex.test(weight)) {
+    if (!ValidNumber.test(weight)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorWeight = "error-style";
-    } else if (!validNumberRegex.test(size)) {
+    } else if (!ValidNumber.test(size)) {
       noValidEnter = "*entrée vos données en chiffres";
       result = false;
       errorSize = "error-style";
