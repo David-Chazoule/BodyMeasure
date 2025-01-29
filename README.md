@@ -41,7 +41,7 @@ Here's an overview of the project structure:
 
 **styles/:** *Sass files for styling.*
 
-**__tests__/:** *Jest unit tests for key functionalities.*
+** __tests__ /:** *Jest unit tests for key functionalities.*
 
 ## How It Works
 
