@@ -1,1 +1,0 @@
-export  const ValidNumber = new RegExp('^[0-9]+$');
