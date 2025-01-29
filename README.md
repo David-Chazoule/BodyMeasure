@@ -29,6 +29,9 @@ npm install
 ```bash
 npm start
 ```
+
+
+
 ## Project Structure
 Here's an overview of the project structure:
 
@@ -37,6 +40,8 @@ Here's an overview of the project structure:
 **components/:** *Reusable React components.*
 
 **styles/:** *Sass files for styling.*
+
+**__tests__/:** *Jest unit tests for key functionalities.*
 
 ## How It Works
 
@@ -54,4 +59,7 @@ Here's an overview of the project structure:
 - weight (in kilograms)
 - height (in centimeters)
 - your body mass (for the method Katch-McArdle)
+
+**Testing**
+Unit tests have been implemented using Jest to ensure the reliability of the calculations and core functionalities of the application.
 
